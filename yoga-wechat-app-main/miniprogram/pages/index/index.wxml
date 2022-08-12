@@ -1,0 +1,119 @@
+<!-- index.wxml -->
+<!-- <view class="weather-container">
+    <text class="weather-location">{{weather.location}}</text>
+    <text>{{weather.weather}}</text>
+    <image class="weather-icon" src="../../images/温度.png"></image>
+    <text>{{weather.degree}}</text>
+    <text>°</text> 
+</view> -->
+<wxs module="formattor">
+  module.exports = {
+    format: function (ms) {
+      var date = getDate(ms / 10000);
+      var month = date.getMonth() + 1;
+      var day = date.getDate();
+      return date.getFullYear() + "-" + (month >= 10 ? month : '0' + month) + "-" + (day >= 10 ? day : '0' + day);
+    }
+  }
+</wxs>
+<view class="swiper-container">
+  <swiper class="swiper1" indicator-dots="true" indicator-active-color="#fff" autoplay circular>
+    <swiper-item>
+      <image src="../../images/skin5-desire.jpeg"></image>
+    </swiper-item>
+    <swiper-item>
+      <image src="../../images/skin5-buygive.jpeg"></image>
+    </swiper-item>
+    <swiper-item>
+      <image src="../../images/skin5-bargain.jpeg"></image>
+    </swiper-item>
+    <swiper-item>
+      <image src="../../images/skin5-seckill.jpeg"></image>
+    </swiper-item>
+    <swiper-item>
+      <image src="../../images/skin5-gp.jpeg"></image>
+    </swiper-item>
+  </swiper>
+</view>
+<view class="category-container">
+  <view class="category-box">
+    <view class="category-list" wx:for="{{yoga.functions}}" wx:key="id">
+      <view class="category-column" bindtap="tabClick" data-id="{{item.id}}" wx:if="{{item.id != 8}}">
+        <image mode="aspectFill" class="category-imgbox" src="{{item.image}}"></image>
+        <view class="category-title">{{item.name}}</view>
+      </view>
+      <button class="category-column" open-type="contact" data-id="{{item.id}}" wx:if="{{item.id === 8}}" style="display: flex;flex-direction: column;align-items: center;padding: 0;">
+        <image mode="aspectFill" class="category-imgbox" src="{{item.image}}"></image>
+        <view class="category-title">{{item.name}}</view>
+      </button>
+    </view>
+  </view>
+</view>
+<!-- <view class="notice-box" wx:if="{{yoga}}">
+  <van-notice-bar mode="link" text="{{yoga.discountTitle }}" background="#FFFFFF"  speed="30" bind:click="goNotice">
+    <image slot="left-icon" class="notice-icon" src="../../images/notice.png"></image>
+  </van-notice-bar>
+</view> -->
+<view class="market-container" style="background-image: url({{host}}/images/sign_3.gif);">
+  <view style="flex: 1">
+    <view class="market-title">送周卡、送瑜伽服、送减肥课程</view>
+  </view>
+  <view class="market-action" bindtap="openOfferInformation">
+    <label>去看看</label>
+  </view>
+</view>
+
+<view class="space"></view>
+<view class="professional-coach">
+  <view class="divider" custom-class="table-text" contentPosition="center">
+    <view class="divider--hairline"></view>
+    <image class="table-icon" src="../../images/yoga.png"></image>
+    <text>专业教练</text>
+    <view class="divider--hairline" style="margin:0 0 0 32rpx ;"></view>
+  </view>
+  <view class="professional-coach-container">
+    <view class="professional-coach-item" wx:for="{{yoga.coaches}}" wx:key="id">
+      <image class="professional-coach-thumbnail" src="https://static.lucidu.cn/images/{{item.thumbnail}}"></image>
+      <view class="professional-coach-title">
+        <text>{{item.name}}</text>
+        <text class="professional-coach-type">（{{item.type}}）</text>
+      </view>
+      <text class="professional-coach-description">{{item.introduction}}</text>
+    </view>
+  </view>
+</view>
+<view class="space"></view>
+
+<view class="sliding-layout">
+  <view class="sliding-container">
+    <view class="sliding-wrapper" style="{{style}}">
+      <view class="sliding-item" wx:for="{{yoga.prompts}}" wx:key="id">
+        <image class="sliding-image" src="{{item.image}}"></image>
+        <view class="sliding-right">
+          <text class="sliding-title">{{item.title}}</text>
+        </view>
+        <button class="sliding-marketing-button" bindtap="onBookClass">预约课程</button>
+      </view>
+    </view>
+  </view>
+</view>
+<view class="space"></view>
+<view style="background: #fff;padding-bottom: 12rpx;color: #333;">
+  <view class="divider" custom-class="table-text" contentPosition="center">
+    <view class="divider--hairline"></view>
+    <image class="table-icon" src="../../images/announcement.png"></image>
+    <text>公告</text>
+    <view class="divider--hairline" style="margin:0 0 0 32rpx ;"></view>
+  </view>
+
+  <view class="announcement-list">
+    <view class="announcement-item" wx:for="{{yoga.announcements}}" wx:key="id" data-id="{{item.id}}" bindtap="onAnnouncement">
+      <view class="announcement-item-title">
+        {{item.title}}
+      </view>
+      <text class="announcement-item-subtitle">{{formattor.format(item.updatedTime)}}</text>
+    </view>
+  </view>
+</view>
+
+<view class="copyright">版权归瑜伽测试号所有</view>

@@ -1,0 +1,6 @@
+<view wx:for="{{encyclopedias}}" data-id="{{item.id}}" wx:key="id"   bindtap="onItemClick" class="item-container">
+    <image class="image" src="{{ item.thumb }}" mode="aspectFit"></image>
+    <view class="item-title">
+        {{item.title}}
+</view>
+</view>

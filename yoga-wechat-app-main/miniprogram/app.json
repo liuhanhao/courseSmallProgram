@@ -1,0 +1,59 @@
+{
+    "pages": [
+        "pages/index/index",
+        "pages/appointment/index",
+        "pages/encyclopedias/index",
+        "pages/checkIn/index",
+        "pages/announcement/index",
+        "pages/photoWall/index",
+        "pages/discount/index",
+        "pages/notFound/index",
+        "pages/encyclopedia/index",
+        "pages/user/index",
+        "pages/ui/index",
+        "pages/announcements/index"
+    ],
+    "usingComponents": {
+    },
+    "window": {
+        "backgroundColor": "#F6F6F6",
+        "backgroundTextStyle": "light",
+        "navigationBarBackgroundColor": "#F6F6F6",
+        "navigationBarTitleText": "瑜伽测试号",
+        "navigationBarTextStyle": "black"
+    },
+    "sitemapLocation": "sitemap.json",
+    "lazyCodeLoading": "requiredComponents",
+    "workers": "workers",
+    "tabBar": {
+        "color": "#8c8c8c",
+        "selectedColor": "#749b15",
+        "backgroundColor": "white",
+        "list": [
+            {
+                "pagePath": "pages/index/index",
+                "text": "首页",
+                "iconPath": "images/home-off.png",
+                "selectedIconPath": "images/home-on.png"
+            },
+            {
+                "pagePath": "pages/appointment/index",
+                "text": "约课",
+                "iconPath": "images/yueke.png",
+                "selectedIconPath": "images/yueke-on.png"
+            },
+            {
+                "pagePath": "pages/checkIn/index",
+                "text": "已约",
+                "iconPath": "images/check-in.png",
+                "selectedIconPath": "images/check-in-on.png"
+            },
+            {
+                "pagePath": "pages/user/index",
+                "text": "我的",
+                "iconPath": "images/my-off.png",
+                "selectedIconPath": "images/my-on.png"
+            }
+        ]
+    }
+}
